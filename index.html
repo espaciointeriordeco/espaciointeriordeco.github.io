@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espacio Interior | Arquitectura Emocional y Diseño de Espacios</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        terracota: '#C07D58',
+                        'terracota-dark': '#9E5B38',
+                        salvia: '#8A9A86',
+                        'salvia-light': '#E9ECE8',
+                        arena: '#F9F7F4',
+                        lino: '#F0EBE1',
+                        grafito: '#2C2A29',
+                        marrongris: '#4A4644',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .noise-bg {
+            background-color: #F9F7F4;
+            background-image: radial-gradient(rgba(192, 125, 88, 0.04) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        /* Slider de antes y después */
+        .before-after-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
+        }
+        .after-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .before-image-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            overflow: hidden;
+            width: 50%;
+            z-index: 10;
+        }
+        .before-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            object-fit: cover;
+            max-width: none;
+        }
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 3px;
+            background: white;
+            z-index: 20;
+            transform: translateX(-50%);
+            cursor: ew-resize;
+        }
+        .slider-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px;
+            height: 44px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #C07D58;
+        }
+    </style>
+</head>
+<body class="font-sans bg-arena text-grafito antialiased selection:bg-terracota selection:text-white noise-bg">
+
+    <!-- Navegación -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-arena/80 backdrop-blur-md border-b border-lino/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex flex-col">
+                <span class="font-serif text-2xl tracking-widest uppercase font-medium text-grafito">Espacio Interior</span>
+                <span class="text-[10px] tracking-[0.3em] uppercase text-terracota font-semibold -mt-1">Diseño & Remodelación</span>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-10 text-sm font-medium text-marrongris tracking-wide">
+                <a href="#filosofia" class="hover:text-terracota transition-colors">Filosofía</a>
+                <a href="#servicios" class="hover:text-terracota transition-colors">Servicios</a>
+                <a href="#transformaciones" class="hover:text-terracota transition-colors">Antes & Después</a>
+                <a href="#diseno-propio" class="hover:text-terracota transition-colors">Diseño de Autor</a>
+                <a href="#contacto" class="hover:text-terracota transition-colors">Contacto</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <a href="https://www.instagram.com/espaciointerior.ec/" target="_blank" class="p-2 text-marrongris hover:text-terracota transition-colors" title="Instagram @espaciointerior.ec">
+                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                </a>
+                <a href="#contacto" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-terracota text-white hover:bg-terracota-dark transition-all duration-300 shadow-sm hover:shadow-md">
+                    Transformar mi espacio
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen pt-32 pb-20 flex items-center justify-center relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-8">
+                <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-salvia-light text-salvia font-semibold text-xs tracking-wider uppercase">
+                    <span class="w-2 h-2 rounded-full bg-salvia animate-pulse"></span>
+                    <span>Flujo de energía & color</span>
+                </div>
+                
+                <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl font-normal leading-[1.08] text-grafito tracking-tight">
+                    Lugares que invitan a <span class="italic font-light text-terracota">estar</span> y <span class="italic font-light text-terracota">permanecer</span>.
+                </h1>
+                
+                <p class="text-base sm:text-lg text-marrongris font-light max-w-xl leading-relaxed">
+                    Remodelamos y embellecemos casas, oficinas y locales comerciales. Despertamos la magia latente de cada rincón mediante el equilibrio de las energías, la psicología del color y piezas de diseño propio hechas con alma.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#transformaciones" class="inline-flex items-center justify-center px-8 py-4 rounded-full text-sm font-semibold uppercase tracking-wider bg-grafito text-white hover:bg-terracota transition-all duration-300 shadow-md hover:shadow-lg">
+                        Ver transformaciones
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </a>
+                    <a href="https://wa.me/?text=Hola%20Eliana,%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20consultarte%20por%20un%20proyecto" target="_blank" class="inline-flex items-center justify-center px-8 py-4 rounded-full text-sm font-semibold uppercase tracking-wider border border-marrongris/30 text-grafito hover:bg-white transition-all duration-300">
+                        <i data-lucide="message-circle" class="w-4 h-4 mr-2 text-salvia"></i>
+                        Escribir por WhatsApp
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-3 gap-6 pt-8 border-t border-lino/80 max-w-lg">
+                    <div>
+                        <div class="font-serif text-3xl font-medium text-grafito">100%</div>
+                        <div class="text-xs text-marrongris font-light mt-0.5">Personalizado</div>
+                    </div>
+                    <div>
+                        <div class="font-serif text-3xl font-medium text-grafito">Energía</div>
+                        <div class="text-xs text-marrongris font-light mt-0.5">Armonía y flujo</div>
+                    </div>
+                    <div>
+                        <div class="font-serif text-3xl font-medium text-grafito">Autor</div>
+                        <div class="text-xs text-marrongris font-light mt-0.5">Objetos propios</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 relative">
+                <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80" alt="Espacio Interior Diseño" class="w-full h-[520px] object-cover hover:scale-105 transition-transform duration-700">
+                </div>
+                <!-- Decoración orgánica -->
+                <div class="absolute -bottom-6 -left-6 w-48 h-48 bg-salvia/20 rounded-full blur-2xl -z-10"></div>
+                <div class="absolute -top-6 -right-6 w-56 h-56 bg-terracota/20 rounded-full blur-3xl -z-10"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Filosofía -->
+    <section id="filosofia" class="py-24 bg-white border-y border-lino/60">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+                <span class="text-xs font-semibold tracking-widest uppercase text-terracota">La Mirada</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-normal text-grafito">
+                    Más que estética, creamos refugios que vibran bien.
+                </h2>
+                <p class="text-marrongris font-light leading-relaxed">
+                    Creemos firmemente que los lugares donde habitamos y trabajamos influyen en nuestras emociones, pensamientos y decisiones cotidianas.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="p-8 rounded-2xl bg-arena border border-lino space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-terracota/10 flex items-center justify-center text-terracota">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-medium text-grafito">Flujo Energético</h3>
+                    <p class="text-sm text-marrongris font-light leading-relaxed">
+                        Desbloqueamos la circulación, ordenamos los focos visuales y diseñamos distribuciones que aportan ligereza, tranquilidad y renovación constante.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-arena border border-lino space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-salvia/20 flex items-center justify-center text-salvia">
+                        <i data-lucide="palette" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-medium text-grafito">La Magia del Color</h3>
+                    <p class="text-sm text-marrongris font-light leading-relaxed">
+                        Colores cálidos, orgánicos y terrosos seleccionados estratégicamente para iluminar, dar calidez e inducir un estado de bienestar profundo.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-arena border border-lino space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-grafito/10 flex items-center justify-center text-grafito">
+                        <i data-lucide="hammer" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-medium text-grafito">Piezas de Autor</h3>
+                    <p class="text-sm text-marrongris font-light leading-relaxed">
+                        Cada proyecto incorpora elementos creados especialmente: texturas únicas, almohadones, arte textil y detalles con identidad propia.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactivo: Antes y Después -->
+    <section id="transformaciones" class="py-24 bg-arena">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <span class="text-xs font-semibold tracking-widest uppercase text-terracota">El Impacto Real</span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-normal text-grafito mt-2">
+                        El poder de transformar un espacio
+                    </h2>
+                </div>
+                <p class="text-sm text-marrongris max-w-md font-light">
+                    Deslizá el control hacia los lados para descubrir cómo un ambiente apagado cobra vida y calidez mediante el diseño integral.
+                </p>
+            </div>
+
+            <!-- Contenedor del comparador interactivo -->
+            <div class="max-w-4xl mx-auto">
+                <div class="before-after-container h-[420px] sm:h-[520px]" id="baContainer">
+                    <!-- Imagen DESPUÉS -->
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=80" alt="Espacio Después" class="after-image" id="afterImg">
+                    <span class="absolute bottom-6 right-6 z-10 bg-black/60 backdrop-blur-md text-white text-xs uppercase tracking-widest font-semibold px-4 py-1.5 rounded-full">
+                        Después
+                    </span>
+
+                    <!-- Imagen ANTES (con corte) -->
+                    <div class="before-image-wrapper" id="beforeWrapper">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1400&q=80" alt="Espacio Antes" class="before-image" id="beforeImg">
+                        <span class="absolute bottom-6 left-6 z-10 bg-black/60 backdrop-blur-md text-white text-xs uppercase tracking-widest font-semibold px-4 py-1.5 rounded-full">
+                            Antes
+                        </span>
+                    </div>
+
+                    <!-- Divisor deslizable -->
+                    <div class="slider-handle" id="sliderHandle">
+                        <div class="slider-circle">
+                            <i data-lucide="move-horizontal" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center text-xs text-marrongris/70 mt-4 italic">
+                    (Mantené presionado y arrastrá para comparar)
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="py-24 bg-white border-t border-lino/60">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto space-y-4 mb-20">
+                <span class="text-xs font-semibold tracking-widest uppercase text-terracota">Áreas de Trabajo</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-normal text-grafito">
+                    Soluciones pensadas para tu ritmo de vida
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Servicio 1 -->
+                <div class="group rounded-2xl overflow-hidden bg-arena border border-lino hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="Remodelación Hogares" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <span class="text-[11px] font-semibold text-terracota uppercase tracking-wider">Hogares & Casas</span>
+                            <h3 class="font-serif text-2xl text-grafito font-medium mt-1">Interiores Residenciales</h3>
+                            <p class="text-sm text-marrongris font-light mt-3 leading-relaxed">
+                                Rediseño de livings, comedores, dormitorios y galerías. Espacios donde la familia se siente cómoda, relajada y conectada.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/?text=Hola%20Eliana,%20quiero%20consultarte%20para%20remodelar%20mi%20casa" target="_blank" class="text-xs font-semibold uppercase tracking-wider text-grafito group-hover:text-terracota inline-flex items-center pt-2">
+                            Consultar servicio <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="group rounded-2xl overflow-hidden bg-arena border border-lino hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Espacios Comerciales" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <span class="text-[11px] font-semibold text-salvia uppercase tracking-wider">Negocios & Oficinas</span>
+                            <h3 class="font-serif text-2xl text-grafito font-medium mt-1">Espacios Corporativos</h3>
+                            <p class="text-sm text-marrongris font-light mt-3 leading-relaxed">
+                                Comercios que enamoran a primera vista y oficinas donde los equipos trabajan con inspiración, claridad mental y dinamismo.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/?text=Hola%20Eliana,%20quiero%20consultarte%20para%20renovar%20mi%20oficina%20o%20local" target="_blank" class="text-xs font-semibold uppercase tracking-wider text-grafito group-hover:text-terracota inline-flex items-center pt-2">
+                            Consultar servicio <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="group rounded-2xl overflow-hidden bg-arena border border-lino hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80" alt="Asesoría Express" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <span class="text-[11px] font-semibold text-terracota uppercase tracking-wider">Puntual & Ágil</span>
+                            <h3 class="font-serif text-2xl text-grafito font-medium mt-1">Asesoría de Estilo & Color</h3>
+                            <p class="text-sm text-marrongris font-light mt-3 leading-relaxed">
+                                Diagnóstico para optimizar la paleta cromática, iluminación y redistribución de tus propios muebles para darle un giro 180° a cualquier ambiente.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/?text=Hola%20Eliana,%20quisiera%20una%20asesor%C3%ADa%20de%20dise%C3%B1o%20y%20color" target="_blank" class="text-xs font-semibold uppercase tracking-wider text-grafito group-hover:text-terracota inline-flex items-center pt-2">
+                            Consultar servicio <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo de Diseño Propio -->
+    <section id="diseno-propio" class="py-24 bg-arena">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-2xl space-y-4 mb-16">
+                <span class="text-xs font-semibold tracking-widest uppercase text-terracota">Hecho a Mano con Pasión</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-normal text-grafito">
+                    Objetos de Diseño Propio
+                </h2>
+                <p class="text-marrongris font-light leading-relaxed">
+                    Detalles creados a medida para completar la atmósfera de cada lugar: texturas orgánicas, materiales nobles y piezas únicas.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="rounded-xl overflow-hidden bg-white shadow-sm border border-lino/80 group">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80" alt="Almohadones y textiles" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-serif text-xl font-medium text-grafito">Textiles en Lino Puro</h4>
+                        <p class="text-xs text-marrongris font-light mt-1">Fundas y almohadones teñidos a mano con tonos cálidos y texturas rústicas.</p>
+                    </div>
+                </div>
+
+                <div class="rounded-xl overflow-hidden bg-white shadow-sm border border-lino/80 group">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=600&q=80" alt="Cerámica y floreros" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-serif text-xl font-medium text-grafito">Cerámicas Esculturales</h4>
+                        <p class="text-xs text-marrongris font-light mt-1">Vasijas orgánicas y floreros que aportan volumen y serenidad natural.</p>
+                    </div>
+                </div>
+
+                <div class="rounded-xl overflow-hidden bg-white shadow-sm border border-lino/80 group">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" alt="Lámparas de autor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-serif text-xl font-medium text-grafito">Iluminación Cálida</h4>
+                        <p class="text-xs text-marrongris font-light mt-1">Lámparas de fibras y pantallas pensadas para crear atmósferas envolventes.</p>
+                    </div>
+                </div>
+
+                <div class="rounded-xl overflow-hidden bg-white shadow-sm border border-lino/80 group">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?auto=format&fit=crop&w=600&q=80" alt="Cuadros y arte" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-serif text-xl font-medium text-grafito">Arte Textil & Lienzos</h4>
+                        <p class="text-xs text-marrongris font-light mt-1">Composiciones abstractas diseñadas para dialogar con los tonos del ambiente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto / Llamado a la acción -->
+    <section id="contacto" class="py-24 bg-white relative">
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
+            <span class="text-xs font-semibold tracking-widest uppercase text-terracota">Hablemos</span>
+            <h2 class="font-serif text-4xl sm:text-6xl font-normal text-grafito leading-tight">
+                ¿Lista para darle una nueva energía a tu lugar favorito?
+            </h2>
+            <p class="text-base sm:text-lg text-marrongris font-light max-w-xl mx-auto leading-relaxed">
+                Contame qué espacio querés transformar. Juntos podemos crear un ambiente donde cada detalle te inspire y te dé ganas de quedarte.
+            </p>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://wa.me/?text=Hola%20Eliana,%20te%20contacto%20desde%20la%20web%20para%20hacerte%20una%20consulta%20por%20un%20proyecto" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 rounded-full text-sm font-semibold uppercase tracking-wider bg-terracota text-white hover:bg-terracota-dark transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <i data-lucide="message-circle" class="w-5 h-5 mr-3"></i>
+                    Conversar por WhatsApp
+                </a>
+                <a href="https://www.instagram.com/espaciointerior.ec/" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-5 rounded-full text-sm font-semibold uppercase tracking-wider border border-marrongris/30 text-grafito hover:bg-arena transition-all duration-300">
+                    <i data-lucide="instagram" class="w-5 h-5 mr-3 text-terracota"></i>
+                    Ver Instagram (@espaciointerior.ec)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-grafito text-lino border-t border-grafito">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex flex-col text-center sm:text-left">
+                <span class="font-serif text-xl tracking-widest uppercase">Espacio Interior</span>
+                <span class="text-[10px] tracking-[0.2em] text-terracota uppercase">Diseño de Interiores & Decoración</span>
+            </div>
+            <p class="text-xs text-lino/60 font-light">
+                © Espacio Interior. Diseñado con amor para transformar ambientes.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script para los Iconos y el Slider Antes/Después -->
+    <script>
+        // Inicializar iconos de Lucide
+        lucide.createIcons();
+
+        // Lógica de Antes y Después interactivo
+        const container = document.getElementById('baContainer');
+        const beforeWrapper = document.getElementById('beforeWrapper');
+        const beforeImg = document.getElementById('beforeImg');
+        const sliderHandle = document.getElementById('sliderHandle');
+
+        let isDown = false;
+
+        function setSliderPosition(x) {
+            const rect = container.getBoundingClientRect();
+            let posX = x - rect.left;
+            if (posX < 0) posX = 0;
+            if (posX > rect.width) posX = rect.width;
+
+            const percentage = (posX / rect.width) * 100;
+            beforeWrapper.style.width = percentage + '%';
+            sliderHandle.style.left = percentage + '%';
+            beforeImg.style.width = rect.width + 'px';
+        }
+
+        window.addEventListener('resize', () => {
+            beforeImg.style.width = container.offsetWidth + 'px';
+        });
+
+        // Eventos táctiles y de mouse
+        container.addEventListener('mousedown', (e) => {
+            isDown = true;
+            setSliderPosition(e.clientX);
+        });
+
+        window.addEventListener('mouseup', () => { isDown = false; });
+        window.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            setSliderPosition(e.clientX);
+        });
+
+        container.addEventListener('touchstart', (e) => {
+            isDown = true;
+            setSliderPosition(e.touches[0].clientX);
+        });
+
+        window.addEventListener('touchend', () => { isDown = false; });
+        container.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            setSliderPosition(e.touches[0].clientX);
+        });
+
+        // Asegurar ancho inicial de la imagen
+        beforeImg.style.width = container.offsetWidth + 'px';
+    </script>
+</body>
+</html>
